@@ -127,5 +127,5 @@ Process 0
 io
 Process 0
 io_done
-**分析**：IO_RUN_IMMEDIATE抢占策略适合交互式、I/O密集型程序，I/O完成立刻切换，响应更快，但进程切换会带来少量开销；IO_RUN_LATER非抢占策略简单，只有进程主动放弃CPU才切换。S
+**分析**：IO_RUN_IMMEDIATE抢占策略适合交互式、I/O密集型程序，I/O完成立刻切换，响应更快，但进程切换会带来少量开销；IO_RUN_LATER非抢占策略简单，只有进程主动放弃CPU才切换。
 作业答案已完成
