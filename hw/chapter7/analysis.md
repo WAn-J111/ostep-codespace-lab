@@ -797,3 +797,55 @@ Final statistics:
 
 **分析**：
 时间片不能太小，否则切换开销占比太高；也不能太大，失去分时效果。时间片大小需要在响应速度和CPU开销之间权衡。
+## Q4 RR 在长短混合任务负载下
+Jobs:1,1,1,100, quantum=1
+Predicted:短任务可以快速得到CPU，长任务会被频繁抢占，平均响应时间低，平均周转时间偏高。
+Simulator result:Job 0 -- Response: 0.00  Turnaround 1.00  Wait 0.00
+Job 1 -- Response: 1.00  Turnaround 2.00  Wait 1.00
+Job 2 -- Response: 2.00  Turnaround 3.00  Wait 2.00
+Job 3 -- Response: 3.00  Turnaround 103.00  Wait 3.00
+Average -- Response: 1.50  Turnaround 27.25  Wait 1.50
+
+Analysis:
+时间片很小（q=1），3个短任务可以很快轮流获得CPU，响应时间很短。但是长任务（Job3，需要运行100）会被反复抢占，一直被打断，周转时间很大。
+这种配置适合交互式场景，任务可以快速得到响应；缺点是频繁上下文切换带来额外开销。
+
+
+## Q5 RR 大时间片对比
+Jobs:1,1,1,100, quantum=100
+Predicted:时间片很大，RR近似FIFO，任务拿到CPU就一次性跑完，上下文切换少；短任务需要排队等待。
+Simulator result:
+Job 0 -- Response: 0.00  Turnaround 1.00  Wait 0.00
+Job 1 -- Response: 1.00  Turnaround 2.00  Wait 1.00
+Job 2 -- Response: 2.00  Turnaround 3.00  Wait 2.00
+Job 3 -- Response: 3.00  Turnaround 103.00  Wait 3.00
+Average -- Response: 1.50  Turnaround 27.25  Wait 1.50
+Analysis:
+时间片设置为100，大于所有任务的运行时间。RR调度退化成FIFO。每个任务一旦获取CPU就会一次性执行完毕，没有抢占切换。
+短任务依旧按顺序依次执行，没有被长任务阻塞，因为长任务排在最后。如果长任务排在队列前面，短任务就要长时间等待，响应时间会变差。
+
+## Q6 Convoy Effect（车队效应）
+问题：解释车队效应，什么时候SJF收益最大。
+车队效应：当长任务先占用CPU，后续大量短任务只能排队等待。短任务本身运行时间很短，却被迫长时间等待，拉高了系统平均周转时间。
+SJF（最短作业优先）优先调度执行时间更短的任务。**当各个任务CPU运行时长差距很大时，SJF消除车队效应的收益最大。**
+
+## Q7 周转时间与等待时间公式推导
+定义：
+Arrival Time（到达时间）：任务进入就绪队列的时刻
+Completion Time（完成时间）：任务执行完毕结束的时刻
+First Run Time（首次运行时间）：任务第一次获得CPU开始执行的时刻
+Burst Time：作业本身需要占用CPU的运行时长
+
+1. 周转时间 Turnaround = 完成时间 − 到达时间
+含义：任务从提交到全部运行结束总共消耗的时间。
+
+2. 响应时间 Response = 首次开始运行时间 − 到达时间
+含义：任务提交之后，要等待多久才第一次拿到CPU。
+
+3. 等待时间 Wait = 周转时间 − BurstTime
+含义：任务在就绪队列排队、等待CPU的总时间。
+
+三者关系：
+Turnaround Time = Waiting Time + Burst Time
+
+问题：解释车队效应，什么时候SJF收益最大。

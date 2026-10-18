@@ -1,0 +1,125 @@
+ARG policy RR
+ARG jlist 1,1,1,100
+
+Here is the job list, with the run time of each job: 
+  Job 0 ( length = 1.0 )
+  Job 1 ( length = 1.0 )
+  Job 2 ( length = 1.0 )
+  Job 3 ( length = 100.0 )
+
+
+** Solutions **
+
+Execution trace:
+  [ time   0 ] Run job   0 for 1.00 secs ( DONE at 1.00 )
+  [ time   1 ] Run job   1 for 1.00 secs ( DONE at 2.00 )
+  [ time   2 ] Run job   2 for 1.00 secs ( DONE at 3.00 )
+  [ time   3 ] Run job   3 for 1.00 secs
+  [ time   4 ] Run job   3 for 1.00 secs
+  [ time   5 ] Run job   3 for 1.00 secs
+  [ time   6 ] Run job   3 for 1.00 secs
+  [ time   7 ] Run job   3 for 1.00 secs
+  [ time   8 ] Run job   3 for 1.00 secs
+  [ time   9 ] Run job   3 for 1.00 secs
+  [ time  10 ] Run job   3 for 1.00 secs
+  [ time  11 ] Run job   3 for 1.00 secs
+  [ time  12 ] Run job   3 for 1.00 secs
+  [ time  13 ] Run job   3 for 1.00 secs
+  [ time  14 ] Run job   3 for 1.00 secs
+  [ time  15 ] Run job   3 for 1.00 secs
+  [ time  16 ] Run job   3 for 1.00 secs
+  [ time  17 ] Run job   3 for 1.00 secs
+  [ time  18 ] Run job   3 for 1.00 secs
+  [ time  19 ] Run job   3 for 1.00 secs
+  [ time  20 ] Run job   3 for 1.00 secs
+  [ time  21 ] Run job   3 for 1.00 secs
+  [ time  22 ] Run job   3 for 1.00 secs
+  [ time  23 ] Run job   3 for 1.00 secs
+  [ time  24 ] Run job   3 for 1.00 secs
+  [ time  25 ] Run job   3 for 1.00 secs
+  [ time  26 ] Run job   3 for 1.00 secs
+  [ time  27 ] Run job   3 for 1.00 secs
+  [ time  28 ] Run job   3 for 1.00 secs
+  [ time  29 ] Run job   3 for 1.00 secs
+  [ time  30 ] Run job   3 for 1.00 secs
+  [ time  31 ] Run job   3 for 1.00 secs
+  [ time  32 ] Run job   3 for 1.00 secs
+  [ time  33 ] Run job   3 for 1.00 secs
+  [ time  34 ] Run job   3 for 1.00 secs
+  [ time  35 ] Run job   3 for 1.00 secs
+  [ time  36 ] Run job   3 for 1.00 secs
+  [ time  37 ] Run job   3 for 1.00 secs
+  [ time  38 ] Run job   3 for 1.00 secs
+  [ time  39 ] Run job   3 for 1.00 secs
+  [ time  40 ] Run job   3 for 1.00 secs
+  [ time  41 ] Run job   3 for 1.00 secs
+  [ time  42 ] Run job   3 for 1.00 secs
+  [ time  43 ] Run job   3 for 1.00 secs
+  [ time  44 ] Run job   3 for 1.00 secs
+  [ time  45 ] Run job   3 for 1.00 secs
+  [ time  46 ] Run job   3 for 1.00 secs
+  [ time  47 ] Run job   3 for 1.00 secs
+  [ time  48 ] Run job   3 for 1.00 secs
+  [ time  49 ] Run job   3 for 1.00 secs
+  [ time  50 ] Run job   3 for 1.00 secs
+  [ time  51 ] Run job   3 for 1.00 secs
+  [ time  52 ] Run job   3 for 1.00 secs
+  [ time  53 ] Run job   3 for 1.00 secs
+  [ time  54 ] Run job   3 for 1.00 secs
+  [ time  55 ] Run job   3 for 1.00 secs
+  [ time  56 ] Run job   3 for 1.00 secs
+  [ time  57 ] Run job   3 for 1.00 secs
+  [ time  58 ] Run job   3 for 1.00 secs
+  [ time  59 ] Run job   3 for 1.00 secs
+  [ time  60 ] Run job   3 for 1.00 secs
+  [ time  61 ] Run job   3 for 1.00 secs
+  [ time  62 ] Run job   3 for 1.00 secs
+  [ time  63 ] Run job   3 for 1.00 secs
+  [ time  64 ] Run job   3 for 1.00 secs
+  [ time  65 ] Run job   3 for 1.00 secs
+  [ time  66 ] Run job   3 for 1.00 secs
+  [ time  67 ] Run job   3 for 1.00 secs
+  [ time  68 ] Run job   3 for 1.00 secs
+  [ time  69 ] Run job   3 for 1.00 secs
+  [ time  70 ] Run job   3 for 1.00 secs
+  [ time  71 ] Run job   3 for 1.00 secs
+  [ time  72 ] Run job   3 for 1.00 secs
+  [ time  73 ] Run job   3 for 1.00 secs
+  [ time  74 ] Run job   3 for 1.00 secs
+  [ time  75 ] Run job   3 for 1.00 secs
+  [ time  76 ] Run job   3 for 1.00 secs
+  [ time  77 ] Run job   3 for 1.00 secs
+  [ time  78 ] Run job   3 for 1.00 secs
+  [ time  79 ] Run job   3 for 1.00 secs
+  [ time  80 ] Run job   3 for 1.00 secs
+  [ time  81 ] Run job   3 for 1.00 secs
+  [ time  82 ] Run job   3 for 1.00 secs
+  [ time  83 ] Run job   3 for 1.00 secs
+  [ time  84 ] Run job   3 for 1.00 secs
+  [ time  85 ] Run job   3 for 1.00 secs
+  [ time  86 ] Run job   3 for 1.00 secs
+  [ time  87 ] Run job   3 for 1.00 secs
+  [ time  88 ] Run job   3 for 1.00 secs
+  [ time  89 ] Run job   3 for 1.00 secs
+  [ time  90 ] Run job   3 for 1.00 secs
+  [ time  91 ] Run job   3 for 1.00 secs
+  [ time  92 ] Run job   3 for 1.00 secs
+  [ time  93 ] Run job   3 for 1.00 secs
+  [ time  94 ] Run job   3 for 1.00 secs
+  [ time  95 ] Run job   3 for 1.00 secs
+  [ time  96 ] Run job   3 for 1.00 secs
+  [ time  97 ] Run job   3 for 1.00 secs
+  [ time  98 ] Run job   3 for 1.00 secs
+  [ time  99 ] Run job   3 for 1.00 secs
+  [ time 100 ] Run job   3 for 1.00 secs
+  [ time 101 ] Run job   3 for 1.00 secs
+  [ time 102 ] Run job   3 for 1.00 secs ( DONE at 103.00 )
+
+Final statistics:
+  Job   0 -- Response: 0.00  Turnaround 1.00  Wait 0.00
+  Job   1 -- Response: 1.00  Turnaround 2.00  Wait 1.00
+  Job   2 -- Response: 2.00  Turnaround 3.00  Wait 2.00
+  Job   3 -- Response: 3.00  Turnaround 103.00  Wait 3.00
+
+  Average -- Response: 1.50  Turnaround 27.25  Wait 1.50
+
